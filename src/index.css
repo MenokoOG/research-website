@@ -9,7 +9,7 @@ body {
   min-height: 100vh;
   background-size: cover;
   background-position: center;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .light-mode {
@@ -31,8 +31,7 @@ button {
 }
 
 .card-container {
-  @apply p-8 rounded-lg shadow-lg relative z-10;
-  background: rgba(71, 124, 194, 0.8);
+  @apply p-8 rounded-lg shadow-lg relative z-10 bg-gradient-to-r from-purple-700 to-blue-500;
   backdrop-filter: blur(10px);
   transition: background 0.3s ease;
 }

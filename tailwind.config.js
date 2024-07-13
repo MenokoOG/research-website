@@ -17,10 +17,17 @@ module.exports = {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
       },
+      transitionProperty: {
+        'background': 'background-color, background-image',
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['dark'],
+      textColor: ['dark'],
+      transitionProperty: ['dark'],
+    },
   },
   plugins: [],
 };

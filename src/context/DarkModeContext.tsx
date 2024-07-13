@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext, useContext } from 'react';
+import React, { useState, useEffect, createContext, useContext, useCallback } from 'react';
 
 const DarkModeContext = createContext<{ darkMode: boolean; toggleDarkMode: () => void }>({
   darkMode: false,
@@ -21,7 +21,9 @@ export const DarkModeProvider: React.FC = ({ children }) => {
     document.body.classList.toggle('light-mode', !darkMode);
   }, [darkMode]);
 
-  const toggleDarkMode = () => setDarkMode(!darkMode);
+  const toggleDarkMode = useCallback(() => {
+    setDarkMode((prevMode) => !prevMode);
+  }, []);
 
   return (
     <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>

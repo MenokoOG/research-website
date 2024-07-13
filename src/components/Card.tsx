@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-const Card: React.FC<{ link: { id: string; title: string; description: string; url: string }; onClick: (url: string) => void }> = ({ link, onClick }) => {
+const Card: React.FC<{ link: { id: string; title: string; description: string; url: string }; onClick: (url: string) => void }> = memo(({ link, onClick }) => {
   return (
     <div className="card">
       <div className="card-title">{link.title}</div>
@@ -16,6 +16,6 @@ const Card: React.FC<{ link: { id: string; title: string; description: string; u
       </button>
     </div>
   );
-};
+});
 
 export default Card;

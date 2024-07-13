@@ -42,10 +42,20 @@ const App: React.FC = () => {
     }
   }, [windowCount]);
 
+  useEffect(() => {
+    const closeAllWindows = () => {
+      windowsRef.current.forEach(win => win.close());
+      windowsRef.current = [];
+    };
+
+    window.addEventListener('beforeunload', closeAllWindows);
+    return () => window.removeEventListener('beforeunload', closeAllWindows);
+  }, []);
+
   return (
     <div className={darkMode ? "dark-mode" : "light-mode"}>
       <div className="flex justify-between items-center p-4">
-        <h1 className="text-3xl font-bold text-primary">Research-Based Website</h1>
+        <h1 className="text-3xl font-bold text-primary">Vast AI Data Research Page</h1>
         <button
           className="bg-gradient-to-r from-purple-700 to-blue-500 text-white py-2 px-4 rounded transition-transform transform hover:scale-105"
           onClick={toggleDarkMode}
